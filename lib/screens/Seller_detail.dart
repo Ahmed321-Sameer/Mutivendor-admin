@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -48,157 +49,219 @@ class _Get_SellerState extends State<Get_Seller> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  // mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        const Text(
-                                          "Owner: ",
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              color: Colors.black),
-                                        ),
-                                        Text(
-                                          curdoc['name'],
-                                          style: const TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.grey),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        const Text(
-                                          "Business: ",
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              color: Colors.black),
-                                        ),
-                                        Text(
-                                          curdoc['busines-name'],
-                                          style: const TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.grey),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        const Text(
-                                          "Number: ",
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              color: Colors.black),
-                                        ),
-                                        Text(
-                                          curdoc['number'],
-                                          style: const TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.grey),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        const Text(
-                                          "Status: ",
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              color: Colors.black),
-                                        ),
-                                        Text(
-                                          curdoc['status'],
-                                          style: const TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.grey),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                child: Expanded(
+                                  child: Column(
+                                    // mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          const Text(
+                                            "Owner: ",
+                                            style: TextStyle(
+                                                fontSize: 17,
+                                                color: Colors.black),
+                                          ),
+                                          Text(
+                                            curdoc['name'],
+                                            style: const TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.grey),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          const Text(
+                                            "Business: ",
+                                            style: TextStyle(
+                                                fontSize: 17,
+                                                color: Colors.black),
+                                          ),
+                                          Text(
+                                            curdoc['busines-name'],
+                                            style: const TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.grey),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          const Text(
+                                            "Number: ",
+                                            style: TextStyle(
+                                                fontSize: 17,
+                                                color: Colors.black),
+                                          ),
+                                          Text(
+                                            curdoc['number'],
+                                            style: const TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.grey),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          const Text(
+                                            "Status: ",
+                                            style: TextStyle(
+                                                fontSize: 17,
+                                                color: Colors.black),
+                                          ),
+                                          Text(
+                                            curdoc['status'],
+                                            style: const TextStyle(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.grey),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                               const SizedBox(
                                 width: 20,
                               ),
-                              Column(
-                                children: [
-                                  // FlutterSwitch(
-                                  //   width: 55.0,
-                                  //   height: 25.0,
-                                  //   valueFontSize: 12.0,
-                                  //   toggleSize: 18.0,
-                                  //   value: status,
-                                  //   onToggle: (val) {
-                                  //     curdoc.reference
-                                  //         .update({"status": "success"});
-                                  //     setState(() {
-                                  //       status = val;
-                                  //     });
-                                  //   },
-                                  // ),
-                                  ElevatedButton(
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    // FlutterSwitch(
+                                    //   width: 55.0,
+                                    //   height: 25.0,
+                                    //   valueFontSize: 12.0,
+                                    //   toggleSize: 18.0,
+                                    //   value: status,
+                                    //   onToggle: (val) {
+                                    //     curdoc.reference
+                                    //         .update({"status": "success"});
+                                    //     setState(() {
+                                    //       status = val;
+                                    //     });
+                                    //   },
+                                    // ),
+                                    ElevatedButton(
+                                        onPressed: () {
+                                          AwesomeDialog(
+                                              context: context,
+                                              dialogBackgroundColor:
+                                                  Colors.white,
+                                              dialogType: DialogType.SUCCES,
+                                              borderSide: BorderSide(
+                                                  color: Colors.blue[900]!,
+                                                  width: 2),
+                                              width: 380,
+                                              buttonsBorderRadius:
+                                                  BorderRadius.all(
+                                                      Radius.circular(2)),
+                                              headerAnimationLoop: false,
+                                              animType: AnimType.BOTTOMSLIDE,
+                                              body: Column(
+                                                children: [
+                                                  const Text('Give premium..??',
+                                                      style: TextStyle(
+                                                          color: Colors.orange,
+                                                          fontFamily: "new",
+                                                          fontSize: 22)),
+                                                ],
+                                              ),
+                                              btnOkText: "Yes",
+                                              btnCancelText: "cancel",
+                                              showCloseIcon: true,
+                                              btnOkOnPress: () {
+                                                curdoc.reference.update(
+                                                    {"status": "success"});
+                                              }).show();
+                                        },
+                                        child: const Text("Give premium")),
+                                    ElevatedButton(
                                       onPressed: () {
-                                        curdoc.reference
-                                            .update({"status": "success"});
+                                        AwesomeDialog(
+                                            context: context,
+                                            dialogBackgroundColor: Colors.white,
+                                            dialogType: DialogType.SUCCES,
+                                            borderSide: BorderSide(
+                                                color: Colors.blue[900]!,
+                                                width: 2),
+                                            width: 380,
+                                            buttonsBorderRadius:
+                                                BorderRadius.all(
+                                                    Radius.circular(2)),
+                                            headerAnimationLoop: false,
+                                            animType: AnimType.BOTTOMSLIDE,
+                                            body: Column(
+                                              children: [
+                                                const Text('Cancel premium..??',
+                                                    style: TextStyle(
+                                                        color: Colors.orange,
+                                                        fontFamily: "new",
+                                                        fontSize: 22)),
+                                              ],
+                                            ),
+                                            btnOkText: "Yes",
+                                            btnCancelText: "cancel",
+                                            showCloseIcon: true,
+                                            btnOkOnPress: () {
+                                              curdoc.reference.update(
+                                                  {"status": "waiting"});
+                                            }).show();
                                       },
-                                      child: const Text("Give premium")),
-                                  ElevatedButton(
-                                    onPressed: () {
-                                      curdoc.reference
-                                          .update({"status": "waiting"});
-                                    },
-                                    child: const Text(
-                                      "keep waiting",
+                                      child: const Text(
+                                        "keep waiting",
+                                      ),
                                     ),
-                                  ),
-                                  ElevatedButton(
-                                      onPressed: () {
-                                        // curdoc.reference
-                                        //     .collection("seller item")
-                                        //     .get()
-                                        //     .then((value) {
-                                        //       value.g
-                                        //     });
-                                        // curdoc.reference.collection("")
-                                        curdoc.reference.delete().then((value) {
-                                          FirebaseFirestore.instance
-                                              .collection("All items")
-                                              .where("seller_id",
-                                                  isEqualTo: curdoc['id'])
-                                              .get()
-                                              .then((nestedvalue) {
-                                            if (nestedvalue.size > 0) {
-                                              nestedvalue.docs
-                                                  .forEach((element) {
-                                                element.reference
-                                                    .delete()
-                                                    .then((value) {
-                                                  Fluttertoast.showToast(
-                                                      msg:
-                                                          "User record successfully deleted",
-                                                      toastLength:
-                                                          Toast.LENGTH_SHORT,
-                                                      gravity:
-                                                          ToastGravity.CENTER,
-                                                      timeInSecForIosWeb: 1,
-                                                      backgroundColor:
-                                                          Colors.amber,
-                                                      textColor: Colors.black,
-                                                      fontSize: 16.0);
+                                    ElevatedButton(
+                                        onPressed: () {
+                                          // curdoc.reference
+                                          //     .collection("seller item")
+                                          //     .get()
+                                          //     .then((value) {
+                                          //       value.g
+                                          //     });
+                                          // curdoc.reference.collection("")
+                                          curdoc.reference
+                                              .delete()
+                                              .then((value) {
+                                            FirebaseFirestore.instance
+                                                .collection("All items")
+                                                .where("seller_id",
+                                                    isEqualTo: curdoc['id'])
+                                                .get()
+                                                .then((nestedvalue) {
+                                              if (nestedvalue.size > 0) {
+                                                nestedvalue.docs
+                                                    .forEach((element) {
+                                                  element.reference
+                                                      .delete()
+                                                      .then((value) {
+                                                    Fluttertoast.showToast(
+                                                        msg:
+                                                            "User record successfully deleted",
+                                                        toastLength:
+                                                            Toast.LENGTH_SHORT,
+                                                        gravity:
+                                                            ToastGravity.CENTER,
+                                                        timeInSecForIosWeb: 1,
+                                                        backgroundColor:
+                                                            Colors.amber,
+                                                        textColor: Colors.black,
+                                                        fontSize: 16.0);
+                                                  });
                                                 });
-                                              });
-                                            }
+                                              }
+                                            });
                                           });
-                                        });
-                                      },
-                                      child: const Text("delete user")),
-                                ],
+                                        },
+                                        child: const Text("delete user")),
+                                  ],
+                                ),
                               )
                             ],
                           ),

@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -7,6 +8,30 @@ class AllProducts extends StatefulWidget {
 
   @override
   State<AllProducts> createState() => _AllProductsState();
+}
+
+getuserifno(context) {
+  AwesomeDialog(
+          context: context,
+          dialogBackgroundColor: Colors.white,
+          dialogType: DialogType.SUCCES,
+          borderSide: BorderSide(color: Colors.blue[900]!, width: 2),
+          width: 380,
+          buttonsBorderRadius: BorderRadius.all(Radius.circular(2)),
+          headerAnimationLoop: false,
+          animType: AnimType.BOTTOMSLIDE,
+          body: Column(
+            children: [
+              const Text('complete this form',
+                  style: TextStyle(
+                      color: Colors.orange, fontFamily: "new", fontSize: 22)),
+            ],
+          ),
+          btnOkText: "Delete",
+          btnCancelText: "cancel",
+          showCloseIcon: true,
+          btnOkOnPress: () {})
+      .show();
 }
 
 class _AllProductsState extends State<AllProducts> {
@@ -78,11 +103,13 @@ class _AllProductsState extends State<AllProducts> {
                                           "Product: ",
                                           style: TextStyle(color: Colors.black),
                                         ),
-                                        Text(
-                                          curdoc["item name"],
-                                          style: const TextStyle(
-                                            color: Colors.grey,
-                                            fontWeight: FontWeight.bold,
+                                        Expanded(
+                                          child: Text(
+                                            curdoc["item name"],
+                                            style: const TextStyle(
+                                              color: Colors.grey,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -122,7 +149,36 @@ class _AllProductsState extends State<AllProducts> {
                                     Center(
                                       child: ElevatedButton(
                                         onPressed: () {
-                                          curdoc.reference.delete();
+                                          AwesomeDialog(
+                                              context: context,
+                                              dialogBackgroundColor:
+                                                  Colors.white,
+                                              dialogType: DialogType.SUCCES,
+                                              borderSide: BorderSide(
+                                                  color: Colors.blue[900]!,
+                                                  width: 2),
+                                              width: 380,
+                                              buttonsBorderRadius:
+                                                  BorderRadius.all(
+                                                      Radius.circular(2)),
+                                              headerAnimationLoop: false,
+                                              animType: AnimType.BOTTOMSLIDE,
+                                              body: Column(
+                                                children: [
+                                                  const Text(
+                                                      'Are your sure you want delet product.?',
+                                                      style: TextStyle(
+                                                          color: Colors.orange,
+                                                          fontFamily: "new",
+                                                          fontSize: 22)),
+                                                ],
+                                              ),
+                                              btnOkText: "Delete",
+                                              btnCancelText: "cancel",
+                                              showCloseIcon: true,
+                                              btnOkOnPress: () {
+                                                curdoc.reference.delete();
+                                              }).show();
                                         },
                                         child: const Text(
                                           "delet product",
