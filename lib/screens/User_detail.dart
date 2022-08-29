@@ -37,6 +37,7 @@ class GetUser extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text("order by: " + curdoc['consumer_name']),
+                            Text("Number: " + curdoc['consumer_phone']),
                             Text("order to: " +
                                 curdoc['busines_name'].toString()),
                           ],
